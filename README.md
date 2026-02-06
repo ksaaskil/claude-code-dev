@@ -1,4 +1,4 @@
-# dev-standards
+# dev
 
 A Claude Code plugin for Python and TypeScript development with opinionated coding standards.
 
