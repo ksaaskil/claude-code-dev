@@ -1,0 +1,23 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "jq -r 'if .tool_input.file_path | endswith(\".py\") then .tool_input.file_path else empty end' | xargs -I {} uv run ruff format {}"
+          },
+          {
+            "type": "command",
+            "command": "jq -r 'if (.tool_input.file_path | test(\"\\\\.(ts|tsx)$\")) then .tool_input.file_path else empty end' | xargs -I {} yarn run prettier {} --write"
+          },
+          {
+            "type": "command",
+            "command": "jq -r 'if .tool_input.file_path | endswith(\".md\") then .tool_input.file_path else empty end' | xargs -I {} yarn run prettier {} --write"
+          }
+        ]
+      }
+    ]
+  }
+}

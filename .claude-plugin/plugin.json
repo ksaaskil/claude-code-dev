@@ -1,0 +1,5 @@
+{
+  "name": "dev-standards",
+  "version": "1.0.0",
+  "description": "Development standards and auto-formatting for Python and TypeScript"
+}
